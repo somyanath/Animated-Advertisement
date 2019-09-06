@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Knewave|Raleway:500');
+
+$primary-color: #fce0df;
+$border-color-1: #F25978;
+$border-color-2: #F7ACA9;
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $primary-color;
+}
+
+// Creating the box animation
+.main {
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  padding: 3em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: solid 3px transparent;
+    margin-top: 30px;
+    margin-bottom: -30px;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover::before {
+    border-top-color: $border-color-1;
+    border-right-color: $border-color-1;
+    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+  }
+
+  &:hover::after {
+    border-bottom-color: $border-color-2;
+    border-left-color: $border-color-2;
+    transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+  }
+}
+
+// Setting the image at the required position
+img {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+}
+
+// Enlarging the text container
+.container {
+  width: 120%;
+}
+
+.heading {
+  position: relative;
+  font-family: 'Knewave', cursive;
+  font-size: 35px;
+  color: $border-color-1;
+  margin-bottom: 50px;
+  z-index: 9;
+  transition: all 1s;
+  // top: 0;
+  left: 0;
+
+  & > span {
+    display: block;
+    font-size: 18px;
+    color: lighten($border-color-1, 8);
+  }
+}
+
+p {
+  position: relative;
+  font-family: 'Raleway', sans-serif;
+  width: 160px;
+  font-size: 14px;
+  color:#404040;
+  line-height: 1.8em;
+  bottom: 2rem;
+  left: 0;
+  transition: all 1s;
+}
+
+.main:hover .container .heading,
+.main:hover .container p {
+  left: 40%;
+}
