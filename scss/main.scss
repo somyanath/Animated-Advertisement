@@ -113,3 +113,15 @@ p {
 .main:hover .container p {
   left: 40%;
 }
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2rem;
+  color: $border-color-1;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
